@@ -1,0 +1,120 @@
+/* Start Var */
+:root {
+  --prm_orange: hsl(31, 77%, 52%);
+  --prm_cyan: hsl(184, 100%, 22%);
+  --prm_dark_cyan: hsl(179, 100%, 13%);
+  --ntl_white: hsla(0, 0%, 100%, 0.75);
+  --ntl_light: hsl(0, 0%, 95%);
+  --ff_lex :'Big Shoulders Display', cursive; ;
+  --ff_bsd : 'Lexend Deca', sans-serif; ;
+  --fw_400 : 400;
+  --fw_700 : 700;
+}
+html {
+  font-size: 15px;
+}
+/* End Var */
+/* Start ATR */
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+/* End ATR */
+/* Start Card */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.cards {
+  display: flex;
+  border-radius: .4rem;
+  overflow: hidden;
+}
+
+.card {
+  max-width: 25rem;
+  padding: 3rem;
+}
+.card .card_text .card__title {
+  margin: 2rem 0;
+}
+.card .card_text .card__title h1{
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-family: var(--ff_lex);
+  font-weight: var(--fw_700);
+  color: var(--ntl_light);
+}
+.card .card_text .card__sub {
+  margin-bottom: 8rem;
+}
+.card .card_text .card__sub p {
+  font-size: 1rem;
+  font-family: var(--ff_bsd);
+  font-weight: var(--fw_400);
+  color: var(--ntl_white);
+}
+.card .card_btn button{
+  outline: none;
+  border: none;
+  background-color: var(--ntl_light);
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-family: var(--ff_bsd);
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.card:nth-child(1) .card_btn button{
+  color: var(--prm_orange);
+}
+.card:nth-child(2) .card_btn button{
+  color: var(--prm_cyan);
+}
+.card:nth-child(3) .card_btn button{
+  color: var(--prm_dark_cyan);
+}
+.card:nth-child(1) {
+  background-color: var(--prm_orange);
+} 
+.card:nth-child(2) {
+  background-color: var(--prm_cyan);
+} 
+.card:nth-child(3) {
+  background-color: var(--prm_dark_cyan);
+} 
+.card .card_btn button:hover {
+  background: none;
+  color: var(--ntl_light);
+  outline: 1px var(--ntl_light) solid;
+}
+@media (max-width: 1135px) {
+  body {
+    padding: 2rem;
+
+  }
+  .cards {
+    margin: 0 auto; 
+    flex-direction: column;
+
+    flex-wrap: wrap;
+  }
+  .card {
+    max-width: 40rem;
+  }
+  .card .card_text .card__sub,.card .card_text .card__title {
+    margin: 1.7rem 0;
+  }
+}
+
+/* End Card */

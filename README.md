@@ -28,10 +28,6 @@ Hello This Project From Front End Mentor
 - CSS custom properties
 - Flexbox
 
-### Useful resources
-
-- [box-shadow](https://cssgenerator.org/box-shadow-css-generator.html)
-
 ## Author
 
 - Website - [Murtada Ahmed](https://murtadafrontdev.github.io/MurtadaAhmedProfile/)
