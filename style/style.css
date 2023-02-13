@@ -18,6 +18,7 @@ html {
 .attribution {
   font-size: 11px;
   text-align: center;
+  font-family: var(--ff_bsd);
 }
 
 .attribution a {
