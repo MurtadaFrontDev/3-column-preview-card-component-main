@@ -7,8 +7,8 @@ import os
 
 app = Flask(__name__)
 
-TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
-TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
+TELEGRAM_BOT_TOKEN = os.getenv('7606461880:AAGtzFYAcUjppyIsKKaEyqOGRBj1mWFbXeQ')
+TELEGRAM_CHAT_ID = os.getenv('2071334805')
 
 def get_cpu_info():
     info = cpuinfo.get_cpu_info()
