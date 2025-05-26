@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify, send_from_directory
 import psutil
 import cpuinfo
 import GPUtil
@@ -7,9 +7,8 @@ import os
 
 app = Flask(__name__)
 
-# حط التوكن و chat_id مال بوت تيليجرام هنا بالـ environment variables
-TELEGRAM_BOT_TOKEN = os.getenv('7606461880:AAGtzFYAcUjppyIsKKaEyqOGRBj1mWFbXeQ')
-TELEGRAM_CHAT_ID = os.getenv('T2071334805')
+TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
+TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
 
 def get_cpu_info():
     info = cpuinfo.get_cpu_info()
@@ -42,7 +41,6 @@ def get_disk_info():
                 "free_gb": round(usage.free / (1024**3), 2)
             })
         except PermissionError:
-            # بعض البارتيشنات ممكن ترفض الوصول
             continue
     return disks
 
@@ -79,7 +77,6 @@ def send_telegram_message(message):
         print(f"Error sending telegram message: {e}")
 
 def format_hardware_info(data):
-    # نحول الداتا لنص مرتب للرسالة
     lines = []
     lines.append("*CPU Info:*")
     cpu = data['cpu']
@@ -110,7 +107,8 @@ def format_hardware_info(data):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    # نرسل ملف html من نفس المجلد بدل templates
+    return send_from_directory('.', 'index.html')
 
 @app.route('/hardware')
 def hardware():
@@ -120,7 +118,6 @@ def hardware():
         "disk": get_disk_info(),
         "gpu": get_gpu_info()
     }
-    # نرسل المعلومات للتيليجرام
     message = format_hardware_info(data)
     send_telegram_message(message)
     return jsonify(data)
